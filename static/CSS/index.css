@@ -1,0 +1,92 @@
+body {
+    background-image: url("../IMG_app/gustavo-zambelli-3fpAmmQ-WXA-unsplash.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-origin: border-box;
+    padding: 0;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none !important;
+    margin: 1rem;
+    margin: 1rem;
+    font-size: 1.5rem !important;
+    box-shadow: 0 0 4px grey;
+}
+
+.button_option {
+    text-align: right;
+}
+
+h3 {
+    font-size: 4rem !important;
+    /* text-shadow: 0 0 3px grey; */
+    /* background-color: white; */
+    padding: 10px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+
+#body-index {
+    text-align: center !important;
+    padding-top: 13%;
+    margin: auto;
+    width: 30%;
+    /* border-bottom: 3px outset rgb(255, 255, 255); */
+}
+
+h1 {
+    font-size: 300% !important;
+}
+
+.title-page {
+    text-shadow: 0 0 5px rgb(187, 187, 187);
+}
+
+.icon {
+    /* background-color: var(--bs-light); */
+    border-radius: .25rem;
+}
+
+.bi {
+    margin: .25rem;
+}
+
+.text-light {
+    font-size: 8rem;
+    /* font-weight: lighter; */
+}
+
+.place {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+}
+
+.foot p {
+    text-align: center;
+}
+
+.cent {
+    text-align: center;
+    padding: 10px;
+    color: white;
+    font-size: 2rem;
+    letter-spacing: 3px;
+    text-decoration: underline;
+}
+
+.foot {
+    width: 100%;
+}

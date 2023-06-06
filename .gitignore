@@ -1,0 +1,8 @@
+/users/migrations/*
+/pages/migrations/*
+/groups/migrations/*
+
+.env
+
+task.txt
+todo.txt
