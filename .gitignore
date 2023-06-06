@@ -1,8 +1,55 @@
-/users/migrations/*
-/pages/migrations/*
-/groups/migrations/*
+users/migrations/
+pages/migrations/
+groups/migrations/
+
+*.pyc
+
+./SocialMediaApp/__pycache__/*
 
 .env
+
+# Ignore compiled Python files
+*.pyc
+__pycache__/
+
+# Ignore the virtual environment
+venv/
+env/
+
+# Ignore local development settings
+local_settings.py
+
+# Ignore static and media files (optional, if you use a different setup for static and media files)
+staticfiles/
+media/
+
+# Ignore database files (optional, if you use a different database setup)
+*.sqlite3
+db.sqlite3
+
+# Ignore IDE and editor specific files
+.idea/
+.vscode/
+
+# Ignore log files
+*.log
+
+# Ignore generated documentation
+docs/_build/
+
+# Ignore local configuration files
+*.ini
+*.env
+
+# Ignore secret and sensitive information (e.g., API keys, credentials)
+*.secret
+
+# Ignore backup files
+*~
+
+# Ignore miscellaneous files
+.DS_Store
+
 
 task.txt
 todo.txt
