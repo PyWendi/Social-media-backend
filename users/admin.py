@@ -23,6 +23,9 @@ class CustomUserAdmin(UserAdmin):
         ('Personal info', {
             'fields': ('fname', 'lname', 'email', 'date_of_birth','country','tel')
         }),
+        ('Advanced info', {
+            'fields': ('role', 'level', 'school', 'verified','expiration_date')
+        }),
         ('Important dates', {
             'fields': ('last_login', 'date_joined')
         }),
@@ -34,6 +37,9 @@ class CustomUserAdmin(UserAdmin):
     add_fieldsets = (
         ('Personal info', {
             'fields': ('fname', 'lname', 'email')
+        }),
+        ('Advanced info', {
+            'fields': ('role', 'level', 'school', 'verified','expiration_date')
         }),
         ('Additional information',{
             'fields': ('tel','country','date_of_birth')        

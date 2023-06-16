@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser, AbstractBaseUser, PermissionsMixin
 from django.utils.translation import gettext_lazy as _
 from django.utils import timezone
+from datetime import timedelta
 
 from .manager import CustomUserManager
 
@@ -16,15 +17,44 @@ def generate_custom_uid():
 """ User model """
 
 class CustomUser(AbstractBaseUser, PermissionsMixin):
+    ROLE_CHOICES = [
+        ('student', 'Student'),
+        ('professor', 'Professor'),
+    ]
+    
+    ORIENTATIONS = [
+        ('college', 'College'),
+        ('high', 'High-School'),
+        ('university', 'University'),
+        ('autodidact', 'Autodidact'),
+    ]
+    
     uid = models.CharField(max_length=32, unique=True, default=generate_custom_uid)
     fname  = models.CharField(max_length=150, null=False)
     lname  = models.CharField(max_length=200, null=False)
     tel = models.CharField(max_length=20, null=False) #Used for API auth
+    email = models.EmailField(_("email address"), unique=True)
+    
+    
     country = models.CharField(max_length=100, blank=False, null=False)
     date_of_birth = models.DateField(editable=True)
     create_at = models.DateTimeField("User creation", auto_now_add=True)
     
-    email = models.EmailField(_("email address"), unique=True)
+    # For email verification if done or not
+    verified = models.BooleanField(null=False, default=False)
+    
+    #Setting expiring date for email validation
+    expiration_date = models.DateTimeField(null=True, blank=True)
+    
+    # Define the role of the user in the application
+    role = models.CharField(max_length=15, choices=ROLE_CHOICES, default="college")
+    
+    # Define the Level of the user
+    level = models.CharField(max_length=15, choices=ORIENTATIONS, default="student")
+    
+    # Define where the user study, if the user is an auto didact then this field is empty
+    school = models.CharField(max_length=250, default="")
+    
     is_staff = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
     date_joined = models.DateTimeField(default=timezone.now)
@@ -37,6 +67,12 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
 
     def __str__(self):
         return self.email
+    
+    def save(self,*args, **kwargs):
+        if not self.verified:
+            self.expiration_date = timezone.now() + timedelta(days=30)
+        return super().save(*args, **kwargs)
+
 
 
 """ User profile """
